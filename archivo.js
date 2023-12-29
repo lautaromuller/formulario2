@@ -1,34 +1,27 @@
+let precioPlan = document.querySelector(".plan_elegido");
+let opcionElegida = document.getElementById("seguro");
+
+opcionElegida.addEventListener("click",function() {
+    if(opcionElegida.value == ""){
+        precioPlan.innerHTML = "Por favor, seleccione un plan";
+        precioPlan.setAttribute("hidden","1");
+    }
+    else if(opcionElegida.value == "basico"){
+        precioPlan.innerHTML = "Básico: $500";
+        precioPlan.removeAttribute("hidden");
+    }
+    else if(opcionElegida.value == "intermedio"){
+        precioPlan.innerHTML = "Intermedio: $1000";
+        precioPlan.removeAttribute("hidden");
+    }
+    else if(opcionElegida.value == "premium"){
+        precioPlan.innerHTML = "Premium: $1500";
+        precioPlan.removeAttribute("hidden");
+    }
+});
 
 document.getElementById('formulario').addEventListener('submit', (event) =>{
     event.preventDefault()
-    
-    let precioPlan = document.querySelector(".plan_elegido");
-    let opcionElegida = document.getElementById("seguro");
-    let opcion = false
-
-    opcionElegida.addEventListener("click",function() {
-        if(opcionElegida.value == ""){ 
-            opcion = false;
-        }
-        else{
-            if(opcionElegida.value == "basico"){
-                precioPlan.innerHTML = "Básico: $500";
-            }
-            else if(opcionElegida.value == "intermedio"){
-                precioPlan.innerHTML = "Intermedio: $1000";
-            }
-            else if(opcionElegida.value == "premium"){
-                precioPlan.innerHTML = "Premium: $1500";
-            }
-            opcion = true;
-            precioPlan.removeAttribute("hidden");
-        }
-    });
-
-    if(!opcion){
-        precioPlan.innerHTML = "Por favor, seleccione un plan";
-        precioPlan.removeAttribute("hidden");
-    }
 
     let nombre = document.getElementById('nombre')
     let errorNombre = document.getElementById('errorNombre')
@@ -95,7 +88,7 @@ document.getElementById('formulario').addEventListener('submit', (event) =>{
         })
     })
 
-    if(!errorNombre.textContent && !errorApellido && !errorDni && !errorEmail && !errorTelefono && opcion == true){
+    if(!errorNombre.textContent && !errorApellido && !errorDni && !errorEmail && !errorTelefono && opcionElegida.value != ""){
         alert ('El formulario se ha enviado con éxito')
         document.getElementById('formulario').reset()
     }else{
@@ -106,6 +99,11 @@ document.getElementById('formulario').addEventListener('submit', (event) =>{
                 input[0].classList.remove("margen")
             }
         })
+        if(opcionElegida.value == ""){
+            precioPlan.innerHTML = "Por favor, seleccione un plan";
+            precioPlan.removeAttribute("hidden")
+        }
     }
 
 })
+
