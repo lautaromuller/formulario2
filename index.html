@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Formulario de contacto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="formulario">
+        <h2>FORMULARIO DE CONTACTO</h2>
+        <div class="form">
+            <input type="text" name="nombre" id="nombre" class="margen"  placeholder="Nombre">
+            <div class="mensaje-error" id="errorNombre"></div>
+        </div>
+        <div class="form">
+            <input type="text" name="apellido" id="apellido" class="margen" placeholder="Apellido">
+            <div class="mensaje-error" id="errorApellido"></div>
+        </div>
+        <div class="form">
+            <input type="number" name="dni" id="dni" class="margen" placeholder="DNI">
+            <div class="mensaje-error" id="errorDni"></div>
+        </div>
+        <div class="form">
+            <input type="email" name="email" id="email" class="margen" placeholder="Email">
+            <div class="mensaje-error" id="errorEmail"></div>
+        </div>
+        <div class="form">
+            <input type="number" name="telefono" id="telefono" class="margen" placeholder="Telefono">
+            <div class="mensaje-error" id="errorTelefono"></div>
+        </div>
+        <div class="form">
+            <select name="seguro" id="seguro">
+                <option value="" selected>Tipo de seguro</option>
+                <option value="basico" id="basico">Básico</option>
+                <option value="intermedio" id="intermedio">Intermedio</option>
+                <option value="premium" id="premium">Premium</option>
+            </select>
+            <p class="plan_elegido" hidden></p>
+        </div>
+        <input type="submit" value="Enviar" id="enviar">
+    </form>
+    
+    <script src="archivo.js"></script>
+</body>
+</html>
